@@ -80,11 +80,14 @@ sheet. Riley Chen is the person to ask if anything on the technical side comes b
 ---
 
 **From:** Jamie Park <jamie.park@ourfund.com>
-**To:** Morgan Diaz <morgan@northfieldrobotics.com>
+**To:** Morgan Diaz <morgan@northfieldrobotics.com>, "Riley Chen" <riley@quietlane.dev>
 **Date:** 2099-03-04
 **Subject:** Re: Northfield Robotics — Series A deal flow
 
-Noted, thanks all. JP here — I will circulate the countersigned copy once it lands.
+Noted, thanks all. Dana Whitfield is picking up the closing mechanics from here and will circulate
+the countersigned copy to every party on this thread the moment it lands, along with the updated
+signature packet, the wire instructions, and the closing checklist we agreed on last week, so nobody
+has to chase any of it down separately.
 
 ---
 

@@ -296,7 +296,7 @@
     "category": "",
     "tags": [],
     "version": "",
-    "evalContractVersion": "1.2.0",
+    "evalContractVersion": "1.3.0",
     "author": "Skills and Agents Co",
     "skillFileUrl": "https://raw.githubusercontent.com/skills-agents-co/skills-and-agents-library/v1.33.0/email-agent/SKILL.md",
     "githubUrl": "https://github.com/skills-agents-co/skills-and-agents-library/tree/v1.33.0/email-agent",
@@ -308,8 +308,10 @@
       "SKILL.md",
       "references/sample-entities/organizations/harbor-logistics.md",
       "references/sample-entities/organizations/harbor-ventures.md",
+      "references/sample-entities/people/dana-whitfield.md",
       "references/sample-entities/people/jamie-park.md",
       "references/sample-entities/people/morgan-diaz.md",
+      "references/sample-entities/people/riley-chen.md",
       "references/sample-thread.md"
     ]
   },

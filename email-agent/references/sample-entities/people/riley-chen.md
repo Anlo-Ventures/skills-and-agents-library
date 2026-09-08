@@ -2,7 +2,7 @@
 type: person
 name: "Riley Chen"
 as_of: 2026-08-01
-aliases: ["RC"]
+aliases: ["RC", "riley@quietlane.dev"]
 ---
 
 # Riley Chen
