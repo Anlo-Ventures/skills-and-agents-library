@@ -126,8 +126,8 @@ it rather than reporting that support is unaddressed.
    Step 6 uses for integrations: the feature's own supplied description
    must say something about support, tickets, self-service, or the
    customer needing help, in those or clearly equivalent words, the way
-   Step 6 requires a feature to actually name a connector or a third-party
-   tool. A feature that automates a manual step or reduces errors, with
+   Step 6 requires a feature to actually name something on its admissible
+   list. A feature that automates a manual step or reduces errors, with
    no mention of support anywhere in what was supplied, does not support
    a support-benefit claim on its own; "automates X" implies a possible
    support effect the same way "syncs with X" implies a possible
@@ -135,8 +135,12 @@ it rather than reporting that support is unaddressed.
    either. If nothing in the supplied features explicitly says something
    support-relevant, say that directly rather than inferring a benefit
    from what a feature sounds like it does.
-6. **Integration capabilities.** Only describe an integration the supplied
-   features actually name: a stated connector, an API, a named third-party
+6. **Integration capabilities.** This step is the single source of truth
+   for what counts as an integration; everywhere else in this file refers
+   to "Step 6's admissible list" rather than restating it.
+
+   Only describe an integration the supplied features actually name. The
+   admissible list is: a stated connector, an API, a named third-party
    tool, or a named integration standard or protocol (SAML, SCIM, OAuth, a
    webhook). Do not describe an integration you're inferring the product
    "probably" supports because a feature sounds compatible; a feature that
@@ -229,7 +233,7 @@ it rather than reporting that support is unaddressed.
   somebody else, and a size word standing in for a size nobody stated.
   Step 7 states all four and the exact size-word list.
 - **Don't describe an integration the features only "clearly imply."** If
-  the features don't name a connector, an API, or a specific tool, say
+  the features don't name anything on Step 6's admissible list, say
   integration isn't addressed rather than inferring compatibility.
 - **Don't fill customer support or integration from guesswork.** If the
   features don't say anything about either, say so instead of assuming.
@@ -383,8 +387,8 @@ dashboards. Built for teams." Segment: mid-market.
   explicit-statement standard: automating a step is not the same as the
   feature stating a support benefit, the same way "implies compatibility"
   isn't the same as naming an integration in Step 6.
-- None of the three names an integration, API, or connector, so the output
-  MUST say integration isn't addressed by the input, and MUST NOT infer
+- None of the three names anything on Step 6's admissible list, so the
+  output MUST say integration isn't addressed by the input, and MUST NOT infer
   one from "real-time spend dashboards clearly implying a data feed" or
   similar reasoning.
 
