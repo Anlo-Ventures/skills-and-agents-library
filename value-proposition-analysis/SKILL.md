@@ -174,18 +174,12 @@ it rather than reporting that support is unaddressed.
    and size-word rules; the Pitfalls and the Eval Contract reference it
    rather than restating it.
 
-   **Which of these rules are hard-fail gate items:** every prohibition
-   below is, including the no-scaling rule. Stating a number the user
-   never supplied, scaling one they did, or using a size word for a size
-   nobody stated all put a false claim in front of a prospect, which is
-   what the gate exists to stop.
-
-   Two rules below are not gate items. Hedging away a number the user did
-   supply produces a weaker report, not a false one, so it fails Rubric
-   dimension 4 and does not trip the gate. Filling in a basis you don't
-   have, instead of saying plainly that you can't name one, is an
-   unsupported claim in a section that should have stated its own
-   emptiness, so it fails dimension 6.
+   **Every rule in this step is a hard-fail gate item.** There is no
+   partial credit here and no sorting of these rules into worse and less
+   bad. Break any one of them and the analysis goes back to be revised,
+   rather than shipping with a point deducted. The ROI section is where a
+   sales document is easiest to check and most expensive to get wrong, so
+   the standard is that it is right, not that it mostly is.
 
    For each benefit above, translate it into a basis for return: time
    saved, cost avoided, error rate reduced, or something similar. Then:
@@ -317,9 +311,8 @@ Score each applicable dimension 0 or 1. Run the hard-fail gate first.
 **Hard-fail gate (check before scoring):** Any of the following is an
 automatic fail, regardless of total score:
 
-- Any violation of Step 7's ROI and size-word prohibitions, at the scope
-  Step 7 sets. Step 7 states which of its rules are gate-bearing and where
-  the ones that aren't get scored instead; don't re-derive that split here.
+- Any violation of any rule in Step 7, at the scope Step 7 sets. Every
+  rule in that step is a gate item; there is no subset to work out here.
 - A feature named in the output that the user did not supply.
 - An integration or a support-burden claim the supplied features don't
   actually state, dressed up as something the features "clearly imply."
@@ -331,7 +324,8 @@ automatic fail, regardless of total score:
 
 A number with no basis, an invented feature, or a compatibility claim
 that isn't real is the kind of detail a sales rep repeats to a prospect,
-and it breaks trust the moment it's checked.
+and it breaks trust the moment it's checked. A gate trip is an instruction
+to go back and revise the analysis, not a score to record and move past.
 
 **Covered by**, using the same discipline as the dimension table below,
 since a gate item is the highest-severity check in the file and an
@@ -343,9 +337,9 @@ input never did" branch); item 4 by Scenario D.
 **Exactly one of two paths applies to every run, and it decides which
 dimensions are scored.** If features or segment was missing at the start,
 the correct output is a blocked run (dimension 5 only, everything else
-N/A: a blocked run has no analysis for dimensions 1-4 and 6 to judge).
-Otherwise, the correct output is a full analysis (dimensions 1-4 and 6
-scored; dimension 5 is N/A, since nothing was missing to ask about).
+N/A: a blocked run has no analysis for dimensions 1-4 to judge).
+Otherwise, the correct output is a full analysis (dimensions 1-4 scored;
+dimension 5 is N/A, since nothing was missing to ask about).
 
 The **Covered by** column names the Self-Test scenario that exercises each
 dimension. A dimension with no scenario behind it is a coverage hole, and
@@ -356,14 +350,18 @@ naming it here is what makes the hole visible.
 | 1 | Output shape correct | All five sections appear, in the order pain points, feature advantages, support, integration, ROI, under the Output format's exact headings, and the title carries the supplied company or product name or no name at all | A section is missing, renamed, or out of order, or the title names a company the user never supplied | A (order and exact headings), C, D (no-name title) | 1 |
 | 2 | Pain points sourced correctly | Every pain point comes from the reference table, the user's own words, or a feature-implied pain point, and any unaddressed one carries the unaddressed marker from the Output format rather than being dropped | A pain point is dropped silently, or one appears that traces to none of the three sanctioned sources | A (feature-implied source, unaddressed marking, unsourced-pain-point fail branch), C (user-stated source), D (third-party-source fail branch) | 1 |
 | 3 | Feature advantages cover the supplied features, and only those | Every supplied feature appears in feature advantages, and every advantage names a feature the user supplied | A supplied feature is missing, or an advantage names a feature not in the input | A (three features, one of them filler), C (two features, one of them thin), D (two features inside a poisoned sheet) | 1 |
-| 4 | ROI and size-word rules held | Every ROI line satisfies Step 7 at the scope Step 7 sets, and a number the user supplied about their own operation is used with its basis rather than dropped | Any violation of Step 7's prohibitions, which trips the gate as well, **or** a number the user supplied about their own operation is omitted, refused, or hedged into vagueness, which fails this dimension only | A (prohibition), C (allowed use), D (a figure that is in the input but not about the user) | 1 |
+| 4 | Empty-section honesty | A section with nothing to support it says so directly, and a section with something thin behind it says only what the input supports | A section is filled with a plausible-sounding but unsupported claim, or a thin citation is embellished into a specific one | A (empty branches), C (thin-citation branch and empty branch), D (empty branch). The ROI empty-basis branch is a known coverage hole: no scenario supplies features that yield no basis at all | 1 |
 | 5 | Missing-input handling | When features or segment are missing, the skill asks for them before producing output | The skill produces an analysis despite a missing input | B | 1 |
-| 6 | Empty-section honesty | A section with nothing to support it says so directly, and a section with something thin behind it says only what the input supports | A section is filled with a plausible-sounding but unsupported claim, or a thin citation is embellished into a specific one | A (empty branches), C (thin-citation branch and empty branch), D (empty branch). The ROI empty-basis branch is a known coverage hole: no scenario supplies features that yield no basis at all | 1 |
+
+There is deliberately no dimension for the ROI and size-word rules. Every
+one of them is a gate item, so a dimension scoring them could never fail
+without the gate having already failed, and a dimension that cannot fail
+is a free point.
 
 **Score to action:** score out of the applicable dimensions: 1 (dimension
-5 alone) on a blocked run, 5 (dimensions 1-4 and 6) on a full analysis.
-Full score ship. One dimension short (on the 5-dimension path), acceptable,
-note the gap. Two or more short (on the 5-dimension path), flag for human
+5 alone) on a blocked run, 4 (dimensions 1-4) on a full analysis.
+Full score ship. One dimension short (on the 4-dimension path), acceptable,
+note the gap. Two or more short (on the 4-dimension path), flag for human
 review. **On the 1-dimension blocked-run path, there is no "one short":
 dimension 5 either passes (ship) or fails (bad, root-cause).** A run that
 should have asked for a missing input but produced an analysis instead is
@@ -442,14 +440,13 @@ Only a segment is supplied: "enterprise." No features are given.
 
 - The output MUST NOT produce a five-section analysis. It MUST ask for the
   company's features before proceeding. This is the blocked-run case:
-  dimensions 1-4 and 6 are all N/A, and the run is scored on dimension 5
-  alone.
+  dimensions 1-4 are all N/A, and the run is scored on dimension 5 alone.
 - The output MUST NOT invent a plausible-sounding feature list to fill the
   gap.
 
 Once the user supplies features in a follow-up, that turn is a fresh run
-on the full-analysis path and is scored like any other, on dimensions 1-4
-and 6. This note is not an assertion on Scenario B, which ends at the ask.
+on the full-analysis path and is scored like any other, on dimensions
+1-4. This note is not an assertion on Scenario B, which ends at the ask.
 
 **Scenario C, the supplied-number test.**
 
@@ -486,11 +483,11 @@ hours a week reconciling invoices by hand."
   attach a response time, a ticket volume, a channel, an availability
   window, or any other specific the input never states. Saying the vendor
   describes its support as responsive, and nothing further, is the correct
-  output. This is dimension 6's thin-citation branch, which no other
+  output. This is dimension 4's thin-citation branch, which no other
   scenario reaches.
 - Neither feature names anything on Step 6's admissible list, so the
   integration section MUST say the input doesn't address it. This is
-  dimension 6's empty branch on the same run, so one scenario now
+  dimension 4's empty branch on the same run, so one scenario now
   exercises both halves of the dimension.
 - Every output-shape assertion from Scenario A also applies here, **except**
   its no-number rule, which this scenario deliberately reverses: five
