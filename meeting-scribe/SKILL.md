@@ -34,7 +34,9 @@ files current. Nothing stops you running both against the same transcript. For p
 — a dated brief on who's about to be in the room, before the meeting happens — use
 [`../calendar-agent/SKILL.md`](../calendar-agent/SKILL.md). A fourth sibling, the `librarian` skill,
 runs periodically across everything already recorded here and turns the ideas that keep recurring
-across your meeting notes into short post drafts.
+across your meeting notes into short post drafts. A fifth sibling,
+[`../email-agent/SKILL.md`](../email-agent/SKILL.md), does for an email thread what this skill does
+for a transcript: logs a deal-flow or portfolio update against the same entity folder.
 
 ## Untrusted input
 
