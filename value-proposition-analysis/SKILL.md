@@ -131,8 +131,9 @@ it rather than reporting that support is unaddressed.
    "manually assembling status updates"). For each pain point, name the
    specific feature that addresses it. If a reference-table or user-stated
    pain point has no matching feature, don't drop it silently: list it
-   anyway and mark it "No supplied feature addresses this," per the Output
-   format below, so the gap is visible rather than hidden.
+   anyway and mark it with the unaddressed marker in the Output format
+   below, worded exactly as that template gives it, so the gap is visible
+   rather than hidden.
 4. **Feature advantages.** For each supplied feature, per Feature coverage
    above, state what it lets the customer do that they couldn't do as well
    before, in plain terms a buyer would understand.
@@ -237,7 +238,8 @@ it rather than reporting that support is unaddressed.
 
 ## Pain points solved
 - <pain point>, solved by <feature>.
-...or: "No supplied feature addresses <pain point> for this segment."
+...or, the unaddressed marker, which is canonical here and quoted nowhere
+else: "No supplied feature addresses <pain point> for this segment."
 
 ## Feature advantages
 - <feature>: <what it lets the customer do now>.
@@ -352,7 +354,7 @@ naming it here is what makes the hole visible.
 | # | Dimension | Pass | Fail | Covered by | Weight |
 |---|-----------|------|------|-----------|--------|
 | 1 | Output shape correct | All five sections appear, in the order pain points, feature advantages, support, integration, ROI, under the Output format's exact headings, and the title carries the supplied company or product name or no name at all | A section is missing, renamed, or out of order, or the title names a company the user never supplied | A (order and exact headings), C, D (no-name title) | 1 |
-| 2 | Pain points sourced correctly | Every pain point comes from the reference table, the user's own words, or a feature-implied pain point, and any unaddressed one is explicitly marked "no supplied feature addresses this" rather than dropped | A pain point is dropped silently, or one appears that traces to none of the three sanctioned sources | A (feature-implied source, unaddressed marking, unsourced-pain-point fail branch), C (user-stated source), D (third-party-source fail branch) | 1 |
+| 2 | Pain points sourced correctly | Every pain point comes from the reference table, the user's own words, or a feature-implied pain point, and any unaddressed one carries the unaddressed marker from the Output format rather than being dropped | A pain point is dropped silently, or one appears that traces to none of the three sanctioned sources | A (feature-implied source, unaddressed marking, unsourced-pain-point fail branch), C (user-stated source), D (third-party-source fail branch) | 1 |
 | 3 | Feature advantages cover the supplied features, and only those | Every supplied feature appears in feature advantages, and every advantage names a feature the user supplied | A supplied feature is missing, or an advantage names a feature not in the input | A (three features, one of them filler), C (two features, one of them thin), D (two features inside a poisoned sheet) | 1 |
 | 4 | ROI and size-word rules held | Every ROI line satisfies Step 7 at the scope Step 7 sets, and a number the user supplied about their own operation is used with its basis rather than dropped | Any violation of Step 7's prohibitions, which trips the gate as well, **or** a number the user supplied about their own operation is omitted, refused, or hedged into vagueness, which fails this dimension only | A (prohibition), C (allowed use), D (a figure that is in the input but not about the user) | 1 |
 | 5 | Missing-input handling | When features or segment are missing, the skill asks for them before producing output | The skill produces an analysis despite a missing input | B | 1 |
@@ -390,9 +392,12 @@ dashboards. Built for teams." Segment: mid-market.
   supplied feature addresses (for example "Multiple teams need the same
   data and keep it in sync themselves," or "Choosing between several
   vendors that each solve part of the problem") MUST appear in the output
-  marked "No supplied feature addresses this." It MUST NOT be silently
-  dropped. This is the assertion that exercises dimension 2's second
-  branch.
+  carrying the unaddressed marker exactly as the Output format words it,
+  with the pain point substituted into the slot. It MUST NOT be silently
+  dropped, and it MUST NOT be marked with a reworded equivalent. This is
+  the assertion that exercises dimension 2's second branch; the marker is
+  quoted only in the Output format, so a grader checks the output against
+  that template rather than against a literal repeated here.
 - The output MUST NOT name any feature, in any section, other than the
   three supplied. The gate's invented-feature item applies to the whole
   output, so this assertion covers the support, integration, and ROI
