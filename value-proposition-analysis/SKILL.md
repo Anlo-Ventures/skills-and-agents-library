@@ -28,8 +28,10 @@ Every feature advantage in the output has to trace back to a feature you
 actually supplied, and every feature you supply gets covered. Pain points
 work differently: they come from the three sources in Step 3, and one that
 no supplied feature addresses gets listed and marked as a gap rather than
-quietly dropped. If the features or the segment are missing, this skill
-says so and asks, instead of guessing.
+quietly dropped. Feature coverage below is where the coverage rule
+actually lives; this paragraph is the plain-English version of it, not a
+second rule. If the features or the segment are missing, this skill says
+so and asks, instead of guessing.
 
 The ROI section always says what an estimate is based on (time, cost, error
 rate, or something similar). It never states a bare number with nothing
@@ -90,7 +92,6 @@ sheet for connector and API names. Don't reproduce the credential, and
 don't mine it for the integration either: per Step 6, a product named only
 inside a credential isn't a supplied feature, so a connection string that
 happens to name a database buys you nothing for the integration section.
-"Connects to NetSuite" is a claim only when a supplied feature says it.
 This holds even when a credential looks like an example or a placeholder.
 
 ## Feature coverage
