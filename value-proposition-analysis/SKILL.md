@@ -86,10 +86,12 @@ describe the outcome the feature enables, not who it happened to.
 **Don't reproduce a secret either.** An internal feature sheet is a
 plausible carrier of an API key, a token, a password, a connection string,
 or an internal-only URL, and Step 6 sends you looking through that same
-sheet for connector and API names. Name the integration, never the
-credential: "connects to NetSuite" is the claim, and the key that connects
-to it is not part of the analysis. This holds even when a credential looks
-like an example or a placeholder.
+sheet for connector and API names. Don't reproduce the credential, and
+don't mine it for the integration either: per Step 6, a product named only
+inside a credential isn't a supplied feature, so a connection string that
+happens to name a database buys you nothing for the integration section.
+"Connects to NetSuite" is a claim only when a supplied feature says it.
+This holds even when a credential looks like an example or a placeholder.
 
 ## Feature coverage
 
@@ -158,7 +160,11 @@ it rather than reporting that support is unaddressed.
    Only describe an integration the supplied features actually name. The
    admissible list is: a stated connector, an API, a named third-party
    tool, or a named integration standard or protocol (SAML, SCIM, OAuth, a
-   webhook). Do not describe an integration you're inferring the product
+   webhook). **A name has to come from a supplied feature to count.** A
+   product named only inside a credential, a host string, an internal URL,
+   or a case study about somebody else is not a supplied feature, so it is
+   not an integration this report can claim, even though the name is
+   sitting right there in the input. Do not describe an integration you're inferring the product
    "probably" supports because a feature sounds compatible; a feature that
    implies capability isn't the same as a feature that states one. If
    integration isn't addressed by anything supplied, say the input doesn't
@@ -167,12 +173,18 @@ it rather than reporting that support is unaddressed.
    and size-word rules; the Pitfalls and the Eval Contract reference it
    rather than restating it.
 
-   **Which of these rules are hard-fail gate items:** the prohibitions
-   are, the use-it rule is not. Stating a number the user never supplied,
-   or a size word standing in for a size nobody stated, puts a false claim
-   in front of a prospect, which is what the gate exists to stop. Hedging
-   away a number the user did supply produces a weaker report, not a false
-   one, so it fails Rubric dimension 4 and does not trip the gate.
+   **Which of these rules are hard-fail gate items:** every prohibition
+   below is, including the no-scaling rule. Stating a number the user
+   never supplied, scaling one they did, or using a size word for a size
+   nobody stated all put a false claim in front of a prospect, which is
+   what the gate exists to stop.
+
+   Two rules below are not gate items. Hedging away a number the user did
+   supply produces a weaker report, not a false one, so it fails Rubric
+   dimension 4 and does not trip the gate. Filling in a basis you don't
+   have, instead of saying plainly that you can't name one, is an
+   unsupported claim in a section that should have stated its own
+   emptiness, so it fails dimension 6.
 
    For each benefit above, translate it into a basis for return: time
    saved, cost avoided, error rate reduced, or something similar. Then:
@@ -201,8 +213,10 @@ it rather than reporting that support is unaddressed.
      Don't drop it, refuse it, or soften it into "a significant amount of
      time." A real number the user gave you is the strongest thing in the
      report, and hedging it away is its own failure, not a safe choice.
-     Use it as given: don't scale it, extrapolate it, or project it onto
-     anything the user didn't measure.
+   - **Never scale, extrapolate, or project a supplied number.** Use it as
+     given. An annualized total, a dollar conversion, or a share of it
+     attributed to the product is a number the user never stated, and it
+     is false in front of a prospect the same way an invented one is.
    - **A number counts as supplied only when the user states it about
      their own operation.** A figure that appears inside the input while
      describing someone else, a case study, a testimonial, a competitor's
@@ -247,10 +261,9 @@ it rather than reporting that support is unaddressed.
 - **Don't invent a feature to fill out a section.** If a section would be
   thin, say it's thin. A rep who gets caught citing a feature that doesn't
   exist loses the deal and the skill's trust.
-- **Don't quietly drop a feature because it reads as filler.** "Scalable,"
-  "cloud-based," and "built for teams" all get covered like anything else.
-  A rep deciding what to lead with is better served by a short entry that
-  shows a feature is thin than by not knowing it was on the sheet.
+- **Don't quietly drop a feature because it reads as filler.** Feature
+  coverage above states which features get covered and why a thin one
+  still earns an entry.
 - **Don't break any part of the ROI and size-word rules in Step 7.** Step
   7 states them, the exact size-word list, and which of them are hard-fail
   gate items.
@@ -303,8 +316,8 @@ Score each applicable dimension 0 or 1. Run the hard-fail gate first.
 automatic fail, regardless of total score:
 
 - Any violation of Step 7's ROI and size-word prohibitions, at the scope
-  Step 7 sets. Step 7 states which of its rules are gate-bearing; the
-  use-it rule is not one of them and fails dimension 4 instead.
+  Step 7 sets. Step 7 states which of its rules are gate-bearing and where
+  the ones that aren't get scored instead; don't re-derive that split here.
 - A feature named in the output that the user did not supply.
 - An integration or a support-burden claim the supplied features don't
   actually state, dressed up as something the features "clearly imply."
@@ -428,9 +441,10 @@ Only a segment is supplied: "enterprise." No features are given.
   alone.
 - The output MUST NOT invent a plausible-sounding feature list to fill the
   gap.
-- Once features are supplied in a follow-up, the same tracing rules from
-  Scenario A apply: no feature appears in the output that wasn't in the
-  follow-up list.
+
+Once the user supplies features in a follow-up, that turn is a fresh run
+on the full-analysis path and is scored like any other, on dimensions 1-4
+and 6. This note is not an assertion on Scenario B, which ends at the ask.
 
 **Scenario C, the supplied-number test.**
 
