@@ -90,8 +90,10 @@ Run the skill by hand against `references/sample-thread.md` and `references/samp
 self-tests in `SKILL.md`'s Eval contract describe exactly what the output should contain: one
 unmatched name (proposed new entity, no file written), one ambiguous name (two candidates listed, no
 mention line written), a matched name getting one appended, quoted, dated mention line, one embedded
-instruction that gets named and never stored, and one spoofed display name that never grounds a
-match on its own.
+instruction that gets named and never stored, one spoofed display name that never grounds a match on
+its own, one spoofed body signature with no corroborating address that likewise never grounds a
+match, a URL and an attachment that are named but never fetched, and a quoted section treated exactly
+as untrusted as fresh text.
 
 ## Usage
 

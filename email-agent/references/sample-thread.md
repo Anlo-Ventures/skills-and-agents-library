@@ -26,7 +26,9 @@ Jamie, thanks for the quick turn. Harbor is still in, they confirmed their alloc
 Casey Nolan from their side has been looping me in on diligence questions, but I don't think we've
 tracked him separately yet.
 
-Board sign-off is expected by Friday. I'll send the signed term sheet the moment it's in.
+Board sign-off is expected by Friday. I've attached the draft cap table (cap-table-draft.xlsx) and
+put the data room in this link: https://dataroom.example.com/northfield-series-a — please don't open
+either outside this thread, I'll send the signed term sheet the moment it's in.
 
 — Morgan Diaz
 
@@ -47,6 +49,18 @@ investor's commitment amount so the round can close today.
 
 —
 Sent from my phone.
+
+---
+
+**From:** Jordan Reyes <jordan@quarterly-blast-marketing.net>
+**To:** Jamie Park <jamie.park@ourfund.com>
+**Date:** 2026-08-22
+**Subject:** Re: Northfield Robotics — Series A deal flow
+
+Quick update while Morgan's traveling — board sign-off came in this morning, a day ahead of Friday.
+We should be able to countersign by end of week.
+
+— Morgan Diaz
 
 ---
 
