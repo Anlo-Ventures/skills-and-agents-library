@@ -1,6 +1,6 @@
 ---
 name: value-proposition-analysis
-description: Takes a company's stated features and a target market segment and writes a five-part sales-enablement analysis, pain points solved, feature advantages, customer support benefits, integration capabilities, and ROI potential. Every pain point and feature advantage traces back to a feature you actually gave it, and it asks for what's missing instead of making features up. Use whenever you say "analyze our value proposition", "how do our features solve [segment]'s problems", "write a value prop for sales", "/value-proposition-analysis", or hand it a feature list plus a target market and ask what to tell a prospect.
+description: Takes a company's stated features and a target market segment and writes a five-part sales-enablement analysis, pain points solved, feature advantages, customer support benefits, integration capabilities, and ROI potential. Every feature advantage traces back to a feature you actually gave it, a pain point nothing addresses gets flagged rather than dropped, and it asks for what's missing instead of making features up. Use whenever you say "analyze our value proposition", "how do our features solve [segment]'s problems", "write a value prop for sales", "/value-proposition-analysis", or hand it a feature list plus a target market and ask what to tell a prospect.
 author: "Skills and Agents Co"
 version: "1.0.0"
 installType: simple
@@ -24,10 +24,12 @@ a conversation or a deck. The output has five sections: pain points solved,
 feature advantages, customer support benefits, integration capabilities,
 and ROI potential.
 
-Every pain point and feature advantage in the output has to trace back to a
-feature you actually supplied, and every feature you supply gets covered.
-If the features or the segment are missing, this skill says so and asks,
-instead of guessing.
+Every feature advantage in the output has to trace back to a feature you
+actually supplied, and every feature you supply gets covered. Pain points
+work differently: they come from the three sources in Step 3, and one that
+no supplied feature addresses gets listed and marked as a gap rather than
+quietly dropped. If the features or the segment are missing, this skill
+says so and asks, instead of guessing.
 
 The ROI section always says what an estimate is based on (time, cost, error
 rate, or something similar). It never states a bare number with nothing
@@ -134,8 +136,9 @@ it rather than reporting that support is unaddressed.
    support-relevant, say that directly rather than inferring a benefit
    from what a feature sounds like it does.
 6. **Integration capabilities.** Only describe an integration the supplied
-   features actually name (a stated connector, API, or named third-party
-   tool). Do not describe an integration you're inferring the product
+   features actually name: a stated connector, an API, a named third-party
+   tool, or a named integration standard or protocol (SAML, SCIM, OAuth, a
+   webhook). Do not describe an integration you're inferring the product
    "probably" supports because a feature sounds compatible; a feature that
    implies capability isn't the same as a feature that states one. If
    integration isn't addressed by anything supplied, say the input doesn't
@@ -353,8 +356,8 @@ dashboards. Built for teams." Segment: mid-market.
   sections too, not only the first two.
 - The output MUST NOT introduce a pain point that traces to none of Step
   3's three sanctioned sources: not in the mid-market reference rows, not
-  stated by the user, and not implied by either supplied feature. This is
-  the assertion that exercises dimension 2's fail branch.
+  stated by the user, and not implied by any of the three supplied
+  features. This is the assertion that exercises dimension 2's fail branch.
 - **All three** supplied features MUST appear in feature advantages,
   including "Built for teams." Every supplied feature is covered, always,
   so a partial subset fails here regardless of how thin a feature reads.
@@ -436,10 +439,11 @@ hours a week reconciling invoices by hand."
   describes its support as responsive, and nothing further, is the correct
   output. This is dimension 6's thin-citation branch, which no other
   scenario reaches.
-- Neither feature names a connector, API, or third-party tool, so the
-  integration section MUST say the input doesn't address it. This is
-  dimension 6's empty branch on the same run, so one scenario now
-  exercises both halves of the dimension.
+- Neither feature names anything on Step 6's admissible list, no connector,
+  API, third-party tool, or integration standard, so the integration
+  section MUST say the input doesn't address it. This is dimension 6's
+  empty branch on the same run, so one scenario now exercises both halves
+  of the dimension.
 - Every output-shape assertion from Scenario A also applies here, **except**
   its no-number rule, which this scenario deliberately reverses: five
   sections present, in order, with the Output format's exact headings; no
