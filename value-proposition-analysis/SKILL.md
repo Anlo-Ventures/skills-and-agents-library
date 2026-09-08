@@ -371,9 +371,9 @@ dashboards. Built for teams." Segment: mid-market.
   (that the vendor positions the product for team use) and MUST NOT invent
   a collaboration capability the input never states.
 - The feature advantages section MUST NOT use a size word from Step 7's
-  list to describe either feature's impact, since the user gave no size to
-  attach one to. This is the assertion that exercises Step 7's size-word
-  rule at the scope Step 7 sets, outside the ROI section.
+  list to describe any supplied feature's impact, since the user gave no
+  size to attach one to. This is the assertion that exercises Step 7's
+  size-word rule at the scope Step 7 sets, outside the ROI section.
 - Every ROI line MUST state a basis (for example time saved reconciling
   invoices, or fewer manual errors). The output MUST NOT state a bare
   percentage or dollar figure with no stated basis, and MUST NOT state any
@@ -443,11 +443,10 @@ hours a week reconciling invoices by hand."
   describes its support as responsive, and nothing further, is the correct
   output. This is dimension 6's thin-citation branch, which no other
   scenario reaches.
-- Neither feature names anything on Step 6's admissible list, no connector,
-  API, third-party tool, or integration standard, so the integration
-  section MUST say the input doesn't address it. This is dimension 6's
-  empty branch on the same run, so one scenario now exercises both halves
-  of the dimension.
+- Neither feature names anything on Step 6's admissible list, so the
+  integration section MUST say the input doesn't address it. This is
+  dimension 6's empty branch on the same run, so one scenario now
+  exercises both halves of the dimension.
 - Every output-shape assertion from Scenario A also applies here, **except**
   its no-number rule, which this scenario deliberately reverses: five
   sections present, in order, with the Output format's exact headings; no
