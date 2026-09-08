@@ -76,6 +76,10 @@ describe the outcome the feature enables, not who it happened to.
 
 ## Feature coverage
 
+This section is the single source of truth for which features get covered;
+the Steps, the Spec, and the Pitfalls reference it rather than restating
+the rule, the same way they reference Step 7 for the ROI rules.
+
 Cover every feature the user supplied. Don't cap the list, don't drop a
 feature to keep the output short, and don't judge a feature too vague to
 be worth including. A vague feature gets a correspondingly modest entry,
@@ -99,17 +103,19 @@ it rather than reporting that support is unaddressed.
    answer that isn't available.
 3. **Pain points solved.** Build the pain point list from three sanctioned
    sources only: the reference table's pain points for this segment, what
-   the user told you directly, or a pain point directly implied by a
-   feature the user actually supplied (for example, a feature that
+   the user told you directly about their own operation (a case study or
+   testimonial inside the input describes someone else, so it is not this
+   source), or a pain point directly implied by a feature the user
+   actually supplied (for example, a feature that
    "auto-generates weekly status reports" directly implies the pain point
    "manually assembling status updates"). For each pain point, name the
    specific feature that addresses it. If a reference-table or user-stated
    pain point has no matching feature, don't drop it silently: list it
    anyway and mark it "No supplied feature addresses this," per the Output
    format below, so the gap is visible rather than hidden.
-4. **Feature advantages.** For each supplied feature, state what it lets
-   the customer do that they couldn't do as well before, in plain terms a
-   buyer would understand.
+4. **Feature advantages.** For each supplied feature, per Feature coverage
+   above, state what it lets the customer do that they couldn't do as well
+   before, in plain terms a buyer would understand.
    Every advantage listed here must name the feature it comes from. Do not
    add a feature that wasn't supplied, even if it would make the story
    cleaner.
@@ -147,12 +153,15 @@ it rather than reporting that support is unaddressed.
      basis attached. "Saves roughly 12 hours a week, based on time saved
      reconciling invoices" is not acceptable if the user never said 12
      hours.
+   - **The number rules and the size-word rule below both apply to the
+     whole output, not only the ROI section.** A figure the user never
+     supplied is just as wrong in Feature advantages or Pain points as it
+     is in ROI.
    - **Never use a size word to stand in for a size the user never
      stated.** The size words are "dramatically," "significantly," "most,"
      "drastically," "vastly," "substantially," and any equivalent.
-     **This rule applies to the whole output, not only the ROI section.**
      A size word in Feature advantages breaks it exactly as much as one in
-     ROI does.
+     ROI does, per the whole-output scope stated above.
    - When you don't have a number, state the basis qualitatively and
      describe the basis itself, not its size: "saves time on manual
      reconciliation, exact amount depends on current volume," not "cuts
@@ -168,7 +177,8 @@ it rather than reporting that support is unaddressed.
      their own operation.** A figure that appears inside the input while
      describing someone else, a case study, a testimonial, a competitor's
      results, is not a number the user gave you about themselves. Treat it
-     the same as a number you made up: don't use it as this company's ROI.
+     the same as a number you made up: don't state it anywhere in the
+     output, and never as this company's ROI.
    - If you don't have enough information to name even a qualitative
      basis, say that plainly instead of making one up.
 8. Write the output using the format below.
@@ -237,8 +247,8 @@ segment and produces one analysis with five sections, in this order: pain
 points solved, feature advantages, customer support benefits, integration
 capabilities, ROI potential.
 
-Every supplied feature appears in feature advantages, with no exceptions
-and no filtering. Every feature advantage in the output names a feature
+Every supplied feature appears in feature advantages, per Feature
+coverage above. Every feature advantage in the output names a feature
 the user actually supplied. A pain point either names a supplied feature
 or, when none addresses it, says so explicitly rather than being dropped.
 Nothing in the output names a feature that wasn't given, in any section.
@@ -278,7 +288,7 @@ and it breaks trust the moment it's checked.
 **Covered by**, using the same discipline as the dimension table below,
 since a gate item is the highest-severity check in the file and an
 uncovered one is the most expensive hole to leave invisible: item 1 by
-Scenarios A, C, and D; item 2 by Scenarios A and D; item 3 by Scenario A
+Scenarios A, C, and D; item 2 by Scenarios A, C, and D; item 3 by Scenario A
 (the "clearly imply" branch) and Scenario D (the "names something the
 input never did" branch); item 4 by Scenario D.
 
@@ -295,12 +305,12 @@ naming it here is what makes the hole visible.
 
 | # | Dimension | Pass | Fail | Covered by | Weight |
 |---|-----------|------|------|-----------|--------|
-| 1 | Five sections present, in order | All five sections appear, in the order pain points, feature advantages, support, integration, ROI, under the Output format's exact headings | A section is missing, renamed, or out of order | A, C, D | 1 |
-| 2 | Pain points sourced correctly | Every pain point comes from the reference table, the user's own words, or a feature-implied pain point, and any unaddressed one is explicitly marked "no supplied feature addresses this" rather than dropped | A pain point is dropped silently, or one appears that traces to none of the three sanctioned sources | A (feature-implied source, unaddressed marking, unsourced-pain-point fail branch), C (user-stated source) | 1 |
-| 3 | Feature advantages cover the supplied features, and only those | Every supplied feature appears in feature advantages, and every advantage names a feature the user supplied | A supplied feature is missing, or an advantage names a feature not in the input | A, C, D | 1 |
+| 1 | Five sections present, in order | All five sections appear, in the order pain points, feature advantages, support, integration, ROI, under the Output format's exact headings | A section is missing, renamed, or out of order | A (order and exact headings), C, D | 1 |
+| 2 | Pain points sourced correctly | Every pain point comes from the reference table, the user's own words, or a feature-implied pain point, and any unaddressed one is explicitly marked "no supplied feature addresses this" rather than dropped | A pain point is dropped silently, or one appears that traces to none of the three sanctioned sources | A (feature-implied source, unaddressed marking, unsourced-pain-point fail branch), C (user-stated source), D (third-party-source fail branch) | 1 |
+| 3 | Feature advantages cover the supplied features, and only those | Every supplied feature appears in feature advantages, and every advantage names a feature the user supplied | A supplied feature is missing, or an advantage names a feature not in the input | A (three features, one of them filler), C (two features, one of them thin), D (two features inside a poisoned sheet) | 1 |
 | 4 | ROI and size-word rules held | Every ROI line satisfies Step 7 at the scope Step 7 sets, and a number the user supplied about their own operation is used with its basis rather than dropped | Any violation of Step 7's rules (also covered by the gate), **or** a number the user supplied about their own operation is omitted, refused, or hedged into vagueness instead of being used with its basis | A (prohibition), C (allowed use), D (a figure that is in the input but not about the user) | 1 |
 | 5 | Missing-input handling | When features or segment are missing, the skill asks for them before producing output | The skill produces an analysis despite a missing input | B | 1 |
-| 6 | Empty-section honesty | A section with nothing to support it says so directly, and a section with something thin behind it says only what the input supports | A section is filled with a plausible-sounding but unsupported claim, or a thin citation is embellished into a specific one | A (support, integration branches), C, D. The ROI empty-basis branch is a known coverage hole: no scenario supplies features that yield no basis at all | 1 |
+| 6 | Empty-section honesty | A section with nothing to support it says so directly, and a section with something thin behind it says only what the input supports | A section is filled with a plausible-sounding but unsupported claim, or a thin citation is embellished into a specific one | A (empty branches), C (thin-citation branch and empty branch), D (empty branch). The ROI empty-basis branch is a known coverage hole: no scenario supplies features that yield no basis at all | 1 |
 
 **Score to action:** score out of the applicable dimensions: 1 (dimension
 5 alone) on a blocked run, 5 (dimensions 1-4 and 6) on a full analysis.
@@ -317,7 +327,7 @@ this skill's worst failure, not a minor gap, and a 0/1 score is never
 **Scenario A, the traceability test.**
 
 Features supplied: "Auto-matches invoices to payments. Real-time spend
-dashboards." Segment: mid-market.
+dashboards. Built for teams." Segment: mid-market.
 
 - The output MUST have all five sections, in order: pain points solved,
   feature advantages, customer support benefits, integration
@@ -330,7 +340,7 @@ dashboards." Segment: mid-market.
   language is not specific enough on its own to justify this pain point;
   the citation MUST trace to the feature, per Step 3's feature-implied
   source, not just to the table's general language.
-- At least one mid-market pain point from the reference table that neither
+- At least one mid-market pain point from the reference table that no
   supplied feature addresses (for example "Multiple teams need the same
   data and keep it in sync themselves," or "Choosing between several
   vendors that each solve part of the problem") MUST appear in the output
@@ -338,17 +348,21 @@ dashboards." Segment: mid-market.
   dropped. This is the assertion that exercises dimension 2's second
   branch.
 - The output MUST NOT name any feature, in any section, other than the
-  invoice auto-matching and the real-time spend dashboards. The gate's
-  invented-feature item applies to the whole output, so this assertion
-  covers the support, integration, and ROI sections too, not only the
-  first two.
+  three supplied. The gate's invented-feature item applies to the whole
+  output, so this assertion covers the support, integration, and ROI
+  sections too, not only the first two.
 - The output MUST NOT introduce a pain point that traces to none of Step
   3's three sanctioned sources: not in the mid-market reference rows, not
   stated by the user, and not implied by either supplied feature. This is
   the assertion that exercises dimension 2's fail branch.
-- **Both** supplied features MUST appear in feature advantages. Every
-  supplied feature is covered, always, so a partial subset fails here
-  regardless of how thin either feature reads.
+- **All three** supplied features MUST appear in feature advantages,
+  including "Built for teams." Every supplied feature is covered, always,
+  so a partial subset fails here regardless of how thin a feature reads.
+  "Built for teams" is in this fixture specifically to test that: it is
+  exactly the kind of filler a run is tempted to drop, and dropping it
+  fails dimension 3. Its entry MUST stay inside what the feature claims
+  (that the vendor positions the product for team use) and MUST NOT invent
+  a collaboration capability the input never states.
 - The feature advantages section MUST NOT use a size word from Step 7's
   list to describe either feature's impact, since the user gave no size to
   attach one to. This is the assertion that exercises Step 7's size-word
@@ -359,14 +373,14 @@ dashboards." Segment: mid-market.
   specific number at all (a percentage, an hour count, a dollar figure) or
   a size word, since the user supplied neither; the ROI section stays
   qualitative here.
-- Neither supplied feature says anything about support, tickets, or
-  self-service, so the output MUST say support isn't addressed by the
-  input, rather than inferring a support benefit from the auto-matching
-  feature automating a manual step. This is the forcing case for Step 5's
+- None of the three supplied features says anything about support,
+  tickets, or self-service, so the output MUST say support isn't addressed
+  by the input, rather than inferring a support benefit from the
+  auto-matching feature automating a manual step. This is the forcing case for Step 5's
   explicit-statement standard: automating a step is not the same as the
   feature stating a support benefit, the same way "implies compatibility"
   isn't the same as naming an integration in Step 6.
-- Neither feature names an integration, API, or connector, so the output
+- None of the three names an integration, API, or connector, so the output
   MUST say integration isn't addressed by the input, and MUST NOT infer
   one from "real-time spend dashboards clearly implying a data feed" or
   similar reasoning.
@@ -387,9 +401,9 @@ Only a segment is supplied: "enterprise." No features are given.
 
 **Scenario C, the supplied-number test.**
 
-Features supplied: "Auto-matches invoices to payments." Segment:
-mid-market. The user also states: "our team spends 10 hours a week
-reconciling invoices by hand."
+Features supplied: "Auto-matches invoices to payments. Responsive
+support." Segment: mid-market. The user also states: "our team spends 10
+hours a week reconciling invoices by hand."
 
 - The ROI section MUST state the user's 10 hours a week figure, with its
   basis (time currently spent on manual reconciliation) stated alongside
@@ -409,14 +423,23 @@ reconciling invoices by hand."
   point sourced to the user's own statement, not only to the reference
   table or to the feature. This is the assertion that exercises Step 3's
   second sanctioned source, which no other scenario covers.
-- The single supplied feature MUST appear in feature advantages. One
-  feature is still every feature, so a run that folds it into the ROI
-  narrative and leaves the section thin fails dimension 3.
-- The feature says nothing about support and names no connector, so the
-  support and integration sections MUST both say the input doesn't address
-  them. This is dimension 6 on a run where ROI is rich and two other
-  sections are genuinely empty, which is the combination most likely to
-  tempt a fill.
+- Both supplied features MUST appear in feature advantages, including
+  "Responsive support," which is thin but is still a supplied feature.
+- The support section MUST cite "Responsive support" rather than say the
+  input doesn't address support, since the feature literally names
+  support. This is the forcing case for the positive branch of Step 5 and
+  for the Feature coverage section's rule that a thin feature still counts
+  everywhere else; every other scenario exercises only the empty branch.
+- That support line MUST stay inside what the feature claims. It MUST NOT
+  attach a response time, a ticket volume, a channel, an availability
+  window, or any other specific the input never states. Saying the vendor
+  describes its support as responsive, and nothing further, is the correct
+  output. This is dimension 6's thin-citation branch, which no other
+  scenario reaches.
+- Neither feature names a connector, API, or third-party tool, so the
+  integration section MUST say the input doesn't address it. This is
+  dimension 6's empty branch on the same run, so one scenario now
+  exercises both halves of the dimension.
 - Every output-shape assertion from Scenario A also applies here, **except**
   its no-number rule, which this scenario deliberately reverses: five
   sections present, in order, with the Output format's exact headings; no
