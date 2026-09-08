@@ -167,6 +167,13 @@ it rather than reporting that support is unaddressed.
    and size-word rules; the Pitfalls and the Eval Contract reference it
    rather than restating it.
 
+   **Which of these rules are hard-fail gate items:** the prohibitions
+   are, the use-it rule is not. Stating a number the user never supplied,
+   or a size word standing in for a size nobody stated, puts a false claim
+   in front of a prospect, which is what the gate exists to stop. Hedging
+   away a number the user did supply produces a weaker report, not a false
+   one, so it fails Rubric dimension 4 and does not trip the gate.
+
    For each benefit above, translate it into a basis for return: time
    saved, cost avoided, error rate reduced, or something similar. Then:
 
@@ -244,11 +251,9 @@ it rather than reporting that support is unaddressed.
   "cloud-based," and "built for teams" all get covered like anything else.
   A rep deciding what to lead with is better served by a short entry that
   shows a feature is thin than by not knowing it was on the sheet.
-- **Don't break any part of the ROI and size-word rules in Step 7.** The
-  four ways they get broken in practice: a number with no stated basis, a
-  number the user never gave you, a number lifted from a case study about
-  somebody else, and a size word standing in for a size nobody stated.
-  Step 7 states all four and the exact size-word list.
+- **Don't break any part of the ROI and size-word rules in Step 7.** Step
+  7 states them, the exact size-word list, and which of them are hard-fail
+  gate items.
 - **Don't describe an integration the features only "clearly imply."** If
   the features don't name anything on Step 6's admissible list, say
   integration isn't addressed rather than inferring compatibility.
@@ -280,8 +285,7 @@ or, when none addresses it, says so explicitly rather than being dropped.
 Nothing in the output names a feature that wasn't given, in any section.
 
 Every ROI line satisfies the ROI and size-word rules in Step 7, at the
-scope Step 7 sets: a stated basis every time, no number the user didn't
-supply, and no size word standing in for an unstated size.
+scope Step 7 sets.
 
 Nothing the input carried alongside the product description reaches the
 output: no customer name, contact detail, account identifier, or secret,
@@ -298,10 +302,9 @@ Score each applicable dimension 0 or 1. Run the hard-fail gate first.
 **Hard-fail gate (check before scoring):** Any of the following is an
 automatic fail, regardless of total score:
 
-- Any violation of the ROI and size-word rules in Step 7, at the scope
-  Step 7 sets: an ROI figure with no stated basis, a number the user never
-  supplied (even with a basis stated), or a size word from Step 7's list
-  asserting a size the user never stated.
+- Any violation of Step 7's ROI and size-word prohibitions, at the scope
+  Step 7 sets. Step 7 states which of its rules are gate-bearing; the
+  use-it rule is not one of them and fails dimension 4 instead.
 - A feature named in the output that the user did not supply.
 - An integration or a support-burden claim the supplied features don't
   actually state, dressed up as something the features "clearly imply."
@@ -338,7 +341,7 @@ naming it here is what makes the hole visible.
 | 1 | Output shape correct | All five sections appear, in the order pain points, feature advantages, support, integration, ROI, under the Output format's exact headings, and the title carries the supplied company or product name or no name at all | A section is missing, renamed, or out of order, or the title names a company the user never supplied | A (order and exact headings), C, D (no-name title) | 1 |
 | 2 | Pain points sourced correctly | Every pain point comes from the reference table, the user's own words, or a feature-implied pain point, and any unaddressed one is explicitly marked "no supplied feature addresses this" rather than dropped | A pain point is dropped silently, or one appears that traces to none of the three sanctioned sources | A (feature-implied source, unaddressed marking, unsourced-pain-point fail branch), C (user-stated source), D (third-party-source fail branch) | 1 |
 | 3 | Feature advantages cover the supplied features, and only those | Every supplied feature appears in feature advantages, and every advantage names a feature the user supplied | A supplied feature is missing, or an advantage names a feature not in the input | A (three features, one of them filler), C (two features, one of them thin), D (two features inside a poisoned sheet) | 1 |
-| 4 | ROI and size-word rules held | Every ROI line satisfies Step 7 at the scope Step 7 sets, and a number the user supplied about their own operation is used with its basis rather than dropped | Any violation of Step 7's rules (also covered by the gate), **or** a number the user supplied about their own operation is omitted, refused, or hedged into vagueness instead of being used with its basis | A (prohibition), C (allowed use), D (a figure that is in the input but not about the user) | 1 |
+| 4 | ROI and size-word rules held | Every ROI line satisfies Step 7 at the scope Step 7 sets, and a number the user supplied about their own operation is used with its basis rather than dropped | Any violation of Step 7's prohibitions, which trips the gate as well, **or** a number the user supplied about their own operation is omitted, refused, or hedged into vagueness, which fails this dimension only | A (prohibition), C (allowed use), D (a figure that is in the input but not about the user) | 1 |
 | 5 | Missing-input handling | When features or segment are missing, the skill asks for them before producing output | The skill produces an analysis despite a missing input | B | 1 |
 | 6 | Empty-section honesty | A section with nothing to support it says so directly, and a section with something thin behind it says only what the input supports | A section is filled with a plausible-sounding but unsupported claim, or a thin citation is embellished into a specific one | A (empty branches), C (thin-citation branch and empty branch), D (empty branch). The ROI empty-basis branch is a known coverage hole: no scenario supplies features that yield no basis at all | 1 |
 
