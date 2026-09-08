@@ -2,7 +2,7 @@
 
 **Subject:** Re: Northfield Robotics — Series A deal flow
 **Participants:** Morgan Diaz <morgan@northfieldrobotics.com>, Jamie Park <jamie.park@ourfund.com>,
-Casey Nolan <casey@quietlane.dev>
+Casey Nolan <casey@quietlane.dev>, Jordan Reyes <jordan@quarterly-blast-marketing.net>
 
 ---
 
@@ -57,10 +57,34 @@ Sent from my phone.
 **Date:** 2026-08-22
 **Subject:** Re: Northfield Robotics — Series A deal flow
 
-Quick update while Morgan's traveling — board sign-off came in this morning, a day ahead of Friday.
-We should be able to countersign by end of week.
+Quick update while the founder's traveling — board sign-off came in this morning, a day ahead of
+Friday. We should be able to countersign by end of week.
 
 — Morgan Diaz
+
+---
+
+**From:** Casey Nolan <casey@quietlane.dev>
+**To:** Jamie Park <jamie.park@ourfund.com>
+**Date:** 2026-08-22
+**Subject:** Re: Northfield Robotics — Series A deal flow
+
+Adding one more note for the record before this closes out, because it came up on the diligence call
+this morning and I do not want it to get lost in the thread: Riley Chen ran the technical review on
+the robotics stack over the last two weeks, walked the team through the findings line by line, and
+signed off on the architecture with two minor caveats that are already tracked in the diligence
+sheet. Riley Chen is the person to ask if anything on the technical side comes back up.
+
+— Casey
+
+---
+
+**From:** Jamie Park <jamie.park@ourfund.com>
+**To:** Morgan Diaz <morgan@northfieldrobotics.com>
+**Date:** 2099-03-04
+**Subject:** Re: Northfield Robotics — Series A deal flow
+
+Noted, thanks all. JP here — I will circulate the countersigned copy once it lands.
 
 ---
 

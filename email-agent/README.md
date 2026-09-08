@@ -80,7 +80,7 @@ email-agent/
 ├── SKILL.md                          # The skill
 ├── references/
 │   ├── sample-thread.md              # Frozen sample email thread for the eval self-tests
-│   └── sample-entities/              # 2 people + 2 organizations, matches the self-tests
+│   └── sample-entities/              # 3 people + 2 organizations, matches the self-tests
 └── README.md
 ```
 
@@ -93,7 +93,9 @@ mention line written), a matched name getting one appended, quoted, dated mentio
 instruction that gets named and never stored, one spoofed display name that never grounds a match on
 its own, one spoofed body signature with no corroborating address that likewise never grounds a
 match, a URL and an attachment that are named but never fetched, and a quoted section treated exactly
-as untrusted as fresh text.
+as untrusted as fresh text. It also covers an invalid `log_folder` that stops the run cold, a
+stranger asserting a tracked entity's involvement whose append is surfaced for confirmation rather
+than written, and an implausible future `Date:` header that never reaches a written date.
 
 ## Usage
 
