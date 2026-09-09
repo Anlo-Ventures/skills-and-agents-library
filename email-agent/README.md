@@ -4,6 +4,16 @@ Reads an email thread and logs the deal-flow or portfolio update it contains aga
 entity files: one dated log entry, plus one appended mention line per entity the thread actually
 names. Files-first, no platform account, no connector required, no mail sent. MIT licensed.
 
+**Read this before you install it.** The skill decides who a message is from by matching the `From:`
+address against the `aliases` you list in your own entity files. **It does not check that the `From:`
+address is real.** There is no DKIM check, no SPF check, no header authentication of any kind — a
+pasted thread or an exported file arrives as plain text, and the skill takes the `From:` line at its
+word. So when you hand it a thread, you are trusting that your mail client or your export already did
+that checking. The alias match is a second layer, and a useful one: it catches typos, lookalike
+addresses, and the wrong person entered in the wrong folder. It will not stop someone who controls
+the raw message and already knows one of the addresses you track. If a thread's authenticity actually
+matters, verify the headers in your mail client first.
+
 - **Live directory:** https://skillsandagents.co
 - **Catalog page:** https://skillsandagents.co/skills/email-agent/
 - **License:** [MIT](../LICENSE)
@@ -80,7 +90,7 @@ email-agent/
 ├── SKILL.md                          # The skill
 ├── references/
 │   ├── sample-thread.md              # Frozen sample email thread for the eval self-tests
-│   └── sample-entities/              # 3 people + 2 organizations, matches the self-tests
+│   └── sample-entities/              # 4 people + 2 organizations, matches the self-tests
 └── README.md
 ```
 
@@ -96,6 +106,11 @@ match, a URL and an attachment that are named but never fetched, and a quoted se
 as untrusted as fresh text. It also covers an invalid `log_folder` that stops the run cold, a
 stranger asserting a tracked entity's involvement whose append is surfaced for confirmation rather
 than written, and an implausible future `Date:` header that never reaches a written date.
+
+What the self-tests deliberately do **not** cover: whether a spoofed `From:` address is detected.
+The skill does not detect one, per the limit stated at the top of this file. The spoofed-display-name
+test asserts that the alias match behaves correctly — it rejects an address the entity file does not
+list and accepts one it does — not that the skill is immune to spoofing.
 
 ## Usage
 
