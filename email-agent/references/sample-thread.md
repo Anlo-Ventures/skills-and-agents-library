@@ -24,7 +24,8 @@ through?
 
 Jamie, thanks for the quick turn. Harbor is still in, they confirmed their allocation yesterday.
 Casey Nolan from their side has been looping me in on diligence questions, but I don't think we've
-tracked him separately yet.
+tracked him separately yet. Their counsel wants the entity name spelled out in full on the docs —
+apparently just writing Ltd on the signature page caused a mess on the last deal they closed.
 
 Board sign-off is expected by Friday. I've attached the draft cap table (cap-table-draft.xlsx) and
 put the data room in this link: https://dataroom.example.com/northfield-series-a — please don't open
