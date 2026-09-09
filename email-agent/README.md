@@ -15,7 +15,8 @@ the raw message and already knows one of the addresses you track. If a thread's 
 matters, verify the headers in your mail client first.
 
 - **Live directory:** https://skillsandagents.co
-- **Catalog page:** https://skillsandagents.co/skills/email-agent/
+- **Catalog page:** `https://skillsandagents.co/skills/email-agent/` — live once the listing is
+  published. Not linked yet, because the page does not build while the entry is a draft.
 - **License:** [MIT](../LICENSE)
 
 ## Credit
