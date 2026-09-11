@@ -36,3 +36,12 @@ line must meet all three of these:
 Do the same in reverse for a QBO register line with no bank-side
 counterpart. Those lines are also missing counterparts, from the other
 direction.
+
+## Confidence Tiers
+
+A same-day, same-amount, same-payee match is the highest-confidence
+tier — this is what `references/output-templates.md`'s Confidence column
+calls "Highest." A match that clears all three criteria only because the
+date falls inside the tolerance window, rather than landing same-day, is
+"Within window" — real, but worth a closer look from the bookkeeper
+before approving it.

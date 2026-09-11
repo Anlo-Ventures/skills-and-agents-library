@@ -44,10 +44,13 @@ QUICKBOOKS_DISABLE_UPDATE=true
 QUICKBOOKS_DISABLE_DELETE=true
 ```
 
-This skill never calls a `create_*`, `update_*`, or `delete_*` tool
-itself, whatever the MCP config says — the env vars are a second
-guarantee, not a replacement. Same rule for the bank side: read only,
-never a tool that starts a transfer, moves funds, or modifies an account.
+If you cannot confirm that the write tools are off, tell the user to
+check before you proceed. This skill never calls a `create_*`,
+`update_*`, or `delete_*` tool itself, whatever the MCP config says — the
+env vars are a second guarantee, not a replacement. Same rule for the
+bank side: read only, never a tool that starts a transfer, moves funds,
+or modifies an account — that rule holds even when the connected MCP
+exposes such a tool.
 
 ## Step 1: Resolve Source, Account, Period, and Tolerance
 
@@ -65,28 +68,36 @@ accounts into one reconciliation. Stop and ask for a supported bank MCP
 if you have neither; never report "reconciled" without both resolved.
 
 Ask for the reporting period if not stated, resolve against today's date,
-and state the range back. Stop and confirm if longer than about a year —
-this skill covers one month or quarter at a time.
+and state the range back. Anchor both the bank-side pull and the QBO-side
+pull to the same start and end date of that stated period. Stop and
+confirm if longer than about a year — this skill covers one month or
+quarter at a time, because a longer range risks an unbounded number of
+transactions from both the bank source and the QBO MCP.
 State this disclaimer, on the first run for a client and whenever no
 tolerance is set for this client this session: **"Exact match" means the
 same amount, payee, and a date inside the tolerance window. It doesn't
 guarantee a match — review every proposed match before approving it in
 QBO. This skill never writes anything for you.** Default tolerance is
 **±2 business days**; use the tolerance the bookkeeper states for the
-run, noting any override in the output.
+run, noting any override in the output. See `references/pull-recipes.md`
+for tips on tightening or widening that window and on stating a per-run
+override in plain language.
 
 ## Step 2: Pull the Bank Side
 
 **This skill makes four calls per run: one bank-side pull here, and three
 QBO pulls in Step 3 (register, balance, petty cash)**, regardless of
-transaction volume. Pull every transaction in the period plus a buffer on
-each end equal to the tolerance window, **for matching only**. **The
-buffer is not part of the period** — exclude every unmatched buffer-only
-transaction before Step 4 reports it as bank-only or missing. See
-`references/pull-recipes.md` for pagination, filters, and fields to
-capture.
-**Stop here if this pull errors, times out, or comes back empty for a
-period where activity is expected**, and do not continue.
+transaction volume. Nothing in this skill loops per transaction. Nothing
+in this skill re-pulls a report. Pull every transaction in the period
+plus a buffer on each end equal to the tolerance window, **for matching
+only**. **The buffer is not part of the period** — only a transaction
+dated inside the stated period is eligible for a discrepancy report;
+exclude every unmatched buffer-only transaction before Step 4 classifies
+it as bank-only or missing. See `references/pull-recipes.md` for
+pagination, filters, and fields to capture.
+**Stop here if this pull errors, times out, returns malformed data, or
+comes back unexpectedly empty or incomplete for a period where activity
+is expected**, and do not continue.
 
 ## Step 3: Pull the QBO Side
 
@@ -97,12 +108,15 @@ QuickBooks Online MCP, plus the bank statement's ending balance. See
 an opening-balance gap or an omitted transaction can leave every
 transaction matching while totals disagree. So, besides the Step 4 match,
 **compare the bank statement's ending balance against QBO's ending
-balance.** Agreement is real evidence for "reconciled". If they disagree,
-the Step 6 discrepancy list's outstanding items must explain the gap —
-state it explicitly, say plainly if they don't, and never call cash
-reconciled in that case.
+balance.** Agreement is real evidence for "reconciled" — **say so
+explicitly if the two balances agree.** If they disagree, the Step 6
+discrepancy list's outstanding items must explain the gap — state it
+explicitly, say plainly if they don't, and never call cash reconciled in
+that case. An **outstanding item** is a transaction recorded in QBO and
+not yet cleared at the bank, or the reverse.
 
-**Stop here if any of the three pulls fails or comes back empty for a
+**Stop here if any of the three pulls errors, times out, returns
+malformed data, or comes back unexpectedly empty or incomplete for a
 period where activity is expected**, and do not continue with partial
 data.
 
@@ -110,12 +124,16 @@ data.
 
 Normalize each side's debit/credit sign before comparing amounts, then
 look for a QBO line matching each bank-side transaction on amount, payee,
-and date. See `references/matching-rules.md` for the mechanics.
+and date. See `references/matching-rules.md` for the mechanics (also the
+home for the confidence-tier definition behind the output table's
+Confidence column).
 Classify each as **exact match** (one QBO line meets all three criteria,
-no equally good rival), **non-exact match** (a mismatch or ambiguity), or
-**missing counterpart** (no QBO line at all). Flag any transaction
-matching more than one candidate as a **duplicate candidate** — never
-pick one silently.
+no equally good rival), **non-exact match** (an amount mismatch, a date
+outside the window, a payee mismatch, or ambiguity between two or more
+candidates), or **missing counterpart** (no QBO line at all). Flag any
+transaction matching more than one candidate as a **duplicate candidate**
+(for example, two same-day, same-amount transactions to the same payee)
+— never pick one silently.
 
 ## Step 5: Reconcile Petty Cash
 
