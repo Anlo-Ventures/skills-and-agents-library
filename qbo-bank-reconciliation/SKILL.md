@@ -32,7 +32,7 @@ on — never fold one into a false "reconciled" summary.
 ## Before you start: confirm read-only access
 
 Confirm the QuickBooks Online MCP (`intuit/quickbooks-online-mcp-server`)
-starts with its write tools off (names vary by release):
+starts with its write tools off (names vary by release — confirm the version you run):
 
 ```
 QUICKBOOKS_DISABLE_WRITE=true QUICKBOOKS_DISABLE_UPDATE=true QUICKBOOKS_DISABLE_DELETE=true
@@ -124,10 +124,10 @@ A petty cash disbursement never touches the bank, so Step 2 cannot verify
 it. Ask for the fund's ending physical count or a petty-cash log. **Never
 describe petty cash as reconciled if the bookkeeper provides neither — mark
 it "petty cash: unreconciled, no physical count or log provided"**, never as
-"nothing to report". Compare the Step 3 total against the count or log — a
-disbursement with no bank-side counterpart is expected, not a discrepancy,
-but flag it when the QBO balance doesn't tie to the count or replenishment
-amount.
+"nothing to report". Compare the Step 3 total and any bank-side petty cash
+entries against the count or log — a disbursement with no bank-side
+counterpart is expected, not a discrepancy, but flag it when the QBO
+balance doesn't tie to the count or replenishment amount.
 
 ## Step 6: Report the Results
 
