@@ -73,3 +73,16 @@ movement log available. This item's variance may include movement after
 the count, not just before it." Never silently net out activity on a guess
 about timing that you cannot confirm. A wrong guess is worse than an
 honest flag on every item.
+
+Classify the item as one of these:
+
+- **Matched**: zero variance
+- **Short**: counted less than QBO, so possible shrinkage or damage
+- **Over**: counted more than QBO, so a possible unrecorded receipt or
+  a prior miscount
+- **Flagged**: a value-without-quantity discrepancy, or an unresolved
+  intraday-timing case. See below.
+
+Never classify a flagged item as **matched** just because its quantities
+happen to agree. Quantities that agree are not the same thing as an item
+that is clean.

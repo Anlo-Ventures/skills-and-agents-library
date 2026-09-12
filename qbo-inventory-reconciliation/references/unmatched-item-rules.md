@@ -1,7 +1,6 @@
 # Flag Unmatched Items — Classification Detail (Step 6)
 
-List every item that appears in only one source in a dedicated section.
-List the two special cases below there too:
+List the two special cases below in that same section too:
 
 - Counted, and not found in QBO's inventory items. That means a naming
   mismatch, or a discontinued item. It can also mean something counted

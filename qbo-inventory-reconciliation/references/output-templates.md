@@ -40,5 +40,3 @@ shows in the Issue column, and that raw figure never folds into the total.
 The intraday-no-log row **is** in the variance total. Step 5 still
 computes and reports a real number for it. It's flagged here only as a
 timing caveat, not excluded. Mark that one `Y`.
-
-Say so plainly if there is nothing to flag. Never omit the section.
