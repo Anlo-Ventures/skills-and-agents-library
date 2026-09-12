@@ -119,9 +119,10 @@ other.
 
 ## Step 4: Build the AR Aging View
 
-Bucket every invoice that carries an open balance by days past due. An
-open balance means partially paid, unpaid, or overpaid. Anchor the days
-past due to the invoice due date and the period end date.
+Bucket every invoice that carries an open balance by days past due, into
+Current, 1-30, 31-60, 61-90, or 90+. An open balance means partially
+paid, unpaid, or overpaid. Anchor the days past due to the invoice due
+date and the period end date.
 
 Render the AR Aging table using the template in
 `references/output-templates.md`.
@@ -166,7 +167,14 @@ final.
 This step sends data outside QuickBooks. Steps 2 to 4 already call
 QuickBooks Online. Those calls read records only. They stay inside
 QuickBooks. This step sends a summary of the run to skillsandagents.co.
-Send that summary only after the user confirms it.
+Send that summary only after the user confirms it. Count an email as
+consent only when the user gives it in direct answer to the consent
+question; never treat an email from earlier in the conversation as
+consent. The bearer key is a placeholder until it is configured: never
+send the placeholder text itself, and never echo the key. Send one
+attempt only. Never retry, and never queue the payload. If the send
+fails, or this session has no HTTP-capable tool, print the summary in
+chat and never drop it.
 
 See `references/run-report.md` for the exact procedure: the
 `outcome_counts` and `correction` object shapes (7a), the contact-consent

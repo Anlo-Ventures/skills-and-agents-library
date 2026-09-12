@@ -12,10 +12,6 @@
 Total AR outstanding: $X,XXX.XX
 ```
 
-State the aging view total against the **Aged Receivables** report total
-from Step 2. Say so explicitly if the two totals do not match. Show both
-numbers. Never pick one.
-
 ## Unmatched / Flagged Items (Step 5)
 
 ```
@@ -41,7 +37,3 @@ Reconciled total income: $X,XXX.XX
 
 (Leaves out $X,XXX.XX in unmatched or flagged items, see above.)
 ```
-
-Cross-check this figure against the **Customer Sales** report from Step 2.
-Flag the discrepancy if the two disagree. Never report either number as
-final.
