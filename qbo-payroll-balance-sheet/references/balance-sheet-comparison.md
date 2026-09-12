@@ -1,8 +1,7 @@
 # Balance Sheet Pull and Comparison (Step 4)
 
-Pull the QuickBooks MCP's **Balance Sheet** report twice. Pull it as of the
-end of the current period. Pull it as of the end of the prior period that
-you resolved in Step 1.
+See SKILL.md Step 4 for when to run this pull: twice, as of the end of the
+current period and as of the end of the prior period resolved in Step 1.
 
 Extract these line items for both periods from the two balance sheet
 snapshots:
@@ -96,3 +95,8 @@ with many small accounts. That is a real tradeoff to revisit with real
 data, not a bug. Every flagged item names what changed and by how much.
 Report the amount in dollars and in percent. Report "new this period"
 instead where that applies.
+
+**Apply only the $5,000 flat-dollar leg to a "new this period" item. The
+10% leg is undefined against a $0 prior balance. Never treat that leg as
+$0.** See SKILL.md Step 4 for why: with a $0 prior balance, 10% of it is
+$0, which would flag any nonzero new item however trivial.

@@ -97,7 +97,14 @@ three calls for a normal run. The count does not change with the number of
 transactions or line items in either report. Nothing in this skill loops
 per transaction or re-pulls a report.
 
-**Check both income and payroll before you compute the ratio:**
+The MCP's own report tool may paginate internally for a very large chart
+of accounts. Follow its pagination in that case, rather than assuming a
+single page. That pagination is the report tool's concern. It is not a
+reason for this skill to make more top-level calls.
+
+**Check both income and payroll before you compute the ratio. The formula
+below cannot cover every case. Check for these cases first, then compute
+the ratio:**
 
 - The payroll ratio is undefined if period income is zero or negative. Do
   not divide. Report the raw payroll figure and the raw income figure.
@@ -112,8 +119,9 @@ per transaction or re-pulls a report.
 
 See `references/payroll-income-check.md` for the Total Income pull recipe,
 the paycheck-date-vs-accrual-basis risk and how to mark a result
-provisional, the tolerance-check formula and default band, and how to
-compose multiple qualifications into one status line.
+provisional, the tolerance-check formula and default band, how to
+compose multiple qualifications into one status line, and what to do when
+the income pull itself fails.
 
 ## Step 4: Pull the Balance Sheet and Compare Periods
 

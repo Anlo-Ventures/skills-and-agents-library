@@ -45,7 +45,7 @@ Skip the payroll-to-income tolerance check below, and report it as
 unavailable. A missing payroll report skips it the same way. Then continue
 to Step 4. The balance sheet review does not depend on this pull.
 
-**Tolerance check.** Run it only when both guards in the body pass.
+**Tolerance check.** Run it only when both guards in SKILL.md Step 3 pass.
 Compute payroll expense as a percentage of period income:
 
 ```
