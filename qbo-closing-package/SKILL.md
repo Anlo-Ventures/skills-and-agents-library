@@ -49,7 +49,14 @@ Ask which period the close covers (e.g. "May 2026" or "Q2 2026") and the target 
 
 ## Step 2: Log Per-Step Status
 
-Ask the bookkeeper to state the status of each of the six checklist steps. The parent initiative maps the first five to one reconciliation skill each; the sixth is this closing step: **Cash**, **Revenue/AR**, **Expenses/AP**, **Payroll/balance sheet**, **Inventory**, and **Closing** (this step — the final report pull and handoff readiness).
+Ask the bookkeeper to state the status of each of the six checklist steps. The parent initiative maps the first five to one reconciliation skill each; the sixth is this closing step:
+
+1. **Cash**: bank and cash account reconciliation
+2. **Revenue / AR**: sales, invoices, and accounts receivable
+3. **Expenses / AP**: bills, expenses, and accounts payable
+4. **Payroll / balance sheet**: payroll entries and balance sheet accounts
+5. **Inventory**: inventory counts and valuation
+6. **Closing**, this step: the final report pull and handoff readiness
 
 Each step gets one of three statuses: **Done** (reconciled clean), **Accepted with open items** (reconciled, with known flagged items the controller agreed to accept as-is — an ignored item does not count), or **Blocked** (not done, not acceptable to proceed past).
 
@@ -64,7 +71,7 @@ Build one status view covering the closing schedule and all six steps, using the
 **Check the five reconciliation steps from Step 2 — Cash, Revenue/AR, Expenses/AP, Payroll/balance sheet, and Inventory. Do not include the Closing step itself in this gate.** Closing's only job is the report pull in Step 5 and the restatement in Step 6, so a bookkeeper can't truthfully mark it Done before that work happens — a gate requiring it would be circular and nothing could ever pass. Treat its status as "in progress until this run completes." Never use it as a gate input. **Treat an unset or unstated step status as Blocked for the gate** — an unanswered step is no evidence it's fine; a silent pass over it is the same false-clean failure as a silent pass over Blocked.
 
 - Proceed to Step 5 if **every one of the five reconciliation steps** is **Done** or **Accepted with open items**.
-- Stop here if **any of the five** is **Blocked**, unset, or unstated. State plainly which steps and why, with the bookkeeper's reason ("not yet stated" if unset). Do not pull final reports. Repeat the status view from Step 3, using the "Close Not Ready" format in `references/output-templates.md`.
+- Stop here if **any of the five** is **Blocked**, unset, or unstated. State plainly which steps and why, with the bookkeeper's reason ("not yet stated" if unset). Do not pull final reports. Repeat the status view from Step 3, then emit the "Close Not Ready" block using the format in `references/output-templates.md`.
 
 ## Step 5: Pull Final Reports and KPIs
 
