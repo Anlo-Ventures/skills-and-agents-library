@@ -1,2 +1,3 @@
 requests>=2.33.0
 playwright>=1.44.0
+idna>=3.15
