@@ -133,6 +133,10 @@ Stop here if either pull errors, times out, or comes back empty. Tell the
 user which pull failed. Never report a period-over-period comparison built
 on one period's data alone.
 
+The flagging threshold is $5,000 or 10% of the prior balance, whichever is
+smaller (see `references/balance-sheet-comparison.md` for the full rule) —
+**for a new item, use the flat $5,000 leg only, never the 10% leg.**
+
 **Evaluate the flagging threshold for a new item (prior balance $0, or the
 account didn't exist last period) with the flat $5,000 dollar leg only.
 Never use the 10%-of-prior-balance leg there.** With a $0 prior balance,

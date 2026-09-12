@@ -39,13 +39,8 @@ one number that hides both. Any category with no clear matching account at
 all reads "unavailable: no clear account match" for both periods, and the
 account names used for the other rows go below the table.
 
-Flagging threshold: $5,000 or 10% of the **absolute value** of the prior
-balance, whichever is smaller, applied to the absolute change. A negative
-prior balance uses its absolute value here too, so the threshold is never
-itself negative. The 10% leg doesn't apply to a "new this period" item,
-since a $0 prior balance has no proportional threshold. Only the $5,000
-flat leg is used there. This is a generic default. Adjust it to this
-client's scale.
+Flagging threshold (threshold per `references/balance-sheet-comparison.md`).
+This is a generic default. Adjust it to this client's scale.
 
 ### Items Flagged for Review
 [List each flagged item by name, with the dollar and percent (or "new

@@ -98,5 +98,5 @@ instead where that applies.
 
 **Apply only the $5,000 flat-dollar leg to a "new this period" item. The
 10% leg is undefined against a $0 prior balance. Never treat that leg as
-$0.** See SKILL.md Step 4 for why: with a $0 prior balance, 10% of it is
-$0, which would flag any nonzero new item however trivial.
+$0.** With a $0 prior balance, 10% of it is $0, which would flag any
+nonzero new item however trivial.
