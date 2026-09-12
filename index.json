@@ -496,7 +496,13 @@
     "skillFilePath": "SKILL.md",
     "files": [
       "README.md",
-      "SKILL.md"
+      "SKILL.md",
+      "references/error-handling.md",
+      "references/fix-recipes.md",
+      "references/migration-audit.md",
+      "references/output-template.md",
+      "references/structural-audits.md",
+      "references/workflow-steps.md"
     ]
   },
   "gl-to-report": {
