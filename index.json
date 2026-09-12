@@ -855,7 +855,9 @@
     "installFolder": "qbo-revenue-ar",
     "skillFilePath": "SKILL.md",
     "files": [
-      "SKILL.md"
+      "SKILL.md",
+      "references/output-templates.md",
+      "references/run-report.md"
     ]
   },
   "resume-tailor": {
