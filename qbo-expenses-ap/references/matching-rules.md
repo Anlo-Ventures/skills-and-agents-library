@@ -1,20 +1,13 @@
 # Matching Rules: Step 4's One-to-One Match and Aging Cross-Check
 
-**Every document matches at most one bill. Every bill matches at most one
-document.** Remove a source document from the candidate pool for every
-other bill once it has matched a bill. Never let the same document satisfy
-two different bills. That rule holds even when both bills share the same
-vendor, amount, and date. That case happens. Duplicate-looking bills from
-one vendor, on one day, for one amount are common. A one-to-one rule has
-to get them right. Never pick one silently when more than one document, or
-more than one bill, could plausibly match a given counterpart. Flag it in
-Step 5 as a competing match that needs the bookkeeper's judgment. Never
-resolve the ambiguity yourself.
-
-**Matching draws from Step 2's period-activity population, not from the
-aging population.** A bill fully paid within the period is still a real
-candidate for document matching. It will not appear in Step 4's aging
-total.
+(See body Step 4 for the one-to-one invariant — every document matches at
+most one bill, every bill matches at most one document, with a competing
+match flagged in Step 5 rather than resolved — and for the
+period-activity-population scope this procedure works from.) That
+invariant holds even when both bills share the same vendor, amount, and
+date. That case happens. Duplicate-looking bills from one vendor, on one
+day, for one amount are common. A one-to-one rule has to get them right,
+which is what the two passes below do.
 
 **Resolve forced assignments first, before you claim anything. Then check
 the remaining ties in both directions.** A pairwise "is my sole candidate

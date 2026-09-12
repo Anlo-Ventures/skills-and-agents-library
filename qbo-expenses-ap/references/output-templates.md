@@ -5,7 +5,7 @@
 Build an **aging bucket view** of every open bill, plus every unapplied
 vendor credit. Bucket them by days past due as of the period end date. Use
 each bill's due date. Credits go in the "Current" column as a negative
-amount, per `references/matching-rules.md`:
+amount, per `matching-rules.md`:
 
 ```
 ## AP Aging, as of [period end date]
@@ -30,8 +30,8 @@ that the exclusion exists to avoid guessing at.
 
 ## Unmatched / Flagged Items (Step 5)
 
-Never silently record a bill or a document that you cannot tie to a match.
-Flag each of these in a dedicated section:
+(See body Step 5 for the never-silently-record invariant.) Flag each of
+these in a dedicated section:
 
 - A bill **from Step 2's period-activity population** with no matching
   source document, per Step 4. It still counts in the total above, if it
@@ -43,16 +43,16 @@ Flag each of these in a dedicated section:
   gap for a document reconciled in an earlier close.
 - A bill **from Step 2's period-activity population** with more than one
   equally plausible matching document. Pass 1's forced-assignment
-  resolution in `references/matching-rules.md` comes first. List every
+  resolution in `matching-rules.md` comes first. List every
   remaining competing candidate, one row per candidate. Group them under
   the same bill reference, so the table shows which candidates compete for
   which bill. The bill still counts in the total above.
 - A source document classified **Contested** in
-  `references/matching-rules.md`. It already shows as a competing
+  `matching-rules.md`. It already shows as a competing
   candidate under its bills above. This bullet exists so the document
   itself is not also silently dropped.
 - A source document classified **Unmatched** in
-  `references/matching-rules.md`. No bill in the period-activity
+  `matching-rules.md`. No bill in the period-activity
   population could match it.
 - A source document from Step 3 flagged during intake and **excluded from
   matching**. The reason is a missing field, an unparseable or negative
@@ -65,21 +65,21 @@ Flag each of these in a dedicated section:
   anyway. The bookkeeper then reads it as a heads-up rather than as an
   excluded row.
 - A bill whose amount genuinely could not be converted to home currency,
-  per `references/pull-recipes.md`. It is excluded from the total above.
+  per `pull-recipes.md`. It is excluded from the total above.
   Say so explicitly in the Issue column.
 - A bill covered by a multi-bill payment or vendor credit, per
-  `references/pull-recipes.md`. The connected MCP does not expose that
+  `pull-recipes.md`. The connected MCP does not expose that
   bill's per-bill allocation. It is excluded from the total above for the
   same reason: no reliable number to include.
 - A bill with no due date, bucketed as Current, or with no stable QBO
-  reference, per `references/pull-recipes.md`. It still counts in the
+  reference, per `pull-recipes.md`. It still counts in the
   total above. This is a data-quality flag, not an exclusion.
 - A discrepancy between your bill-level reconciliation and QBO's own AP
-  Aging report, per `references/matching-rules.md`. Note explicitly
+  Aging report, per `matching-rules.md`. Note explicitly
   whether Step 2's pulls might have straddled a mid-run change, before you
   treat the gap as fully genuine.
 - A vendor credit whose unapplied portion netted into the total, per
-  `references/matching-rules.md`. This is not an error. It is an item
+  `matching-rules.md`. This is not an error. It is an item
   worth surfacing, so the bookkeeper sees what reduces gross AP to the net
   figure.
 - A possible open bill older than the 12-month lookback window. Report it
@@ -103,7 +103,8 @@ allocation ("allocation unavailable"). Both are flagged explicitly in this
 table.
 ```
 
-Say so plainly if there is nothing to flag. Never omit the section.
+(See body Step 5: say so plainly if there is nothing to flag, and never
+omit the section.)
 
 ## Missing Receipts / Invoices List (Step 6)
 
@@ -132,5 +133,5 @@ bookkeeper, not as an implicit gap buried in Step 5's table.
 (None missing: every bill in this period matched a source document.)
 ```
 
-Always print this section. Use the "none missing" line word for word when
-there is nothing to list. Never omit the section itself.
+(See body Step 6: always print this section, even when empty.) Use the
+"none missing" line word for word when there is nothing to list.
