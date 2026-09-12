@@ -102,9 +102,9 @@ of accounts. Follow its pagination in that case, rather than assuming a
 single page. That pagination is the report tool's concern. It is not a
 reason for this skill to make more top-level calls.
 
-**Check both income and payroll before you compute the ratio. The formula
-below cannot cover every case. Check for these cases first, then compute
-the ratio:**
+**Check both income and payroll before you compute the ratio. The
+tolerance-check formula in `references/payroll-income-check.md` cannot
+cover every case. Check for these cases first, then compute the ratio:**
 
 - The payroll ratio is undefined if period income is zero or negative. Do
   not divide. Report the raw payroll figure and the raw income figure.
@@ -141,10 +141,10 @@ nonzero new item, however trivial. The 10% leg exists to catch a
 proportionally large move against an existing balance, and a new item has
 no prior balance to be proportional to.
 
-See `references/balance-sheet-comparison.md` for the pull recipe, the
-four-category extraction rules, how to handle an ambiguous or
-disappearing account, the period-over-period computation, and the full
-$5,000-or-10%-whichever-smaller flagging threshold.
+See `references/balance-sheet-comparison.md` for the four-category
+extraction rules, how to handle an ambiguous or disappearing account, the
+period-over-period computation, and the full $5,000-or-10%-whichever-smaller
+flagging threshold.
 
 ## Step 5: Report
 
