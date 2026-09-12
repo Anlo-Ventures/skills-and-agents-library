@@ -111,8 +111,11 @@ instructions.
    the transcript states one and "owner?" where it doesn't. Do not invent an owner.
 5. Write the meeting note (format in `references/output-format.md` — read it before writing) at
    `meetings/YYYY-MM-DD-<slug>.md` inside the entity folder,
-   using the resolved meeting date. **Check whether that path already exists before writing.** If it
-   does:
+   using the resolved meeting date. The note's frontmatter MUST include `type: meeting`, `name`,
+   `as_of` (the meeting date), and `source_transcript` (the transcript's path or identifier) —
+   `source_transcript` in particular is what step 5's own collision check below keys on, so a note
+   written without it breaks rerun detection; `aliases` is optional. **Check whether that path already
+   exists before writing.** If it does:
    - If its `source_transcript` matches the transcript you are processing, this is a rerun of the same
      meeting. Rewrite that one note in place and append **no** new mention lines — every mention from
      that note is already on the entity files. Say in the run output that this was an idempotent rerun.
@@ -169,7 +172,9 @@ stopping.
 
 Produces the meeting note, the mention line, and a draft-only recap email. Steps 5-7 above write
 these; see `references/output-format.md` for the exact meeting-note template, the mention-line
-format, and what the recap email must contain.
+format, and what the recap email must contain. If the Rules block doesn't specify recap recipients,
+the `To:` line uses the literal placeholder `To: [recipients not set]` — never invent or infer an
+address.
 
 ## Error handling
 
