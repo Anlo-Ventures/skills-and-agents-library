@@ -56,6 +56,12 @@ These apply across every mode that touches them — not repeated per-step in the
 
 ## Execution Modes
 
+Modes A, B, and C all load `references/workflow-steps.md`, which in turn points
+to `references/fix-recipes.md`, `references/structural-audits.md`, and
+`references/output-template.md` at the steps that need them — those three files
+are reached through `workflow-steps.md`, not named directly by a mode entry
+below.
+
 ### Mode A — Full Autonomous (Cowork + Browser)
 Complete loop: Search Console login → audit → diagnose → fix → resubmit → follow-up.
 Preferred mode. Use when Cowork and browser tools are available.
@@ -74,17 +80,21 @@ Loads: `references/workflow-steps.md` — Steps 1-2 are replaced by the pasted C
 Steps 3-5 run as written, Step 6 becomes a manual checklist (no browser to submit
 requests). Step 7 is not run in this mode — it needs a browser and Mode C has
 none; this is a known, pre-existing gap, not something this restructuring fixes.
+Step 8 runs as written (the report); Step 9 does not apply (no follow-up loop).
 
 ### Mode D — Migration Audit (Substack / WordPress → Ghost)
 Checks redirect coverage, canonical integrity, and URL mapping for publishers
 who recently migrated from another platform.
-Loads: `references/migration-audit.md` only. Shares nothing with Modes A/B/C.
+Loads: `references/migration-audit.md`, which also points to
+`references/output-template.md` for the report format. Shares no other
+reference file with Modes A/B/C.
 
 ---
 
 ## Ghost MCP Error Handling & Browser Fallbacks
 
-See `references/error-handling.md` for MCP failure handling and Search Console
+Every mode reads this section's pointer, including Mode D. See
+`references/error-handling.md` for MCP failure handling and Search Console
 UI-change fallbacks.
 
 ---

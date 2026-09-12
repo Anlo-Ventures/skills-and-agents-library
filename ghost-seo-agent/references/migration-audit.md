@@ -40,3 +40,8 @@ View-source on 3-5 Ghost posts. Confirm `<link rel="canonical">` points to
 `{{SITE_URL}}/[slug]`, not the old platform URL. If any canonical points back to
 the old platform, flag as critical — this leaks authority and prevents Ghost posts
 from ranking.
+
+#### Report
+
+Produce the report using the header, summary stats, and findings-table format in
+`references/output-template.md` (Step 8), with `Mode: Migration Audit`.
