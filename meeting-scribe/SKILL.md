@@ -109,7 +109,8 @@ instructions.
    unmatched instead of forcing a mention.
 4. Extract follow-ups: anything someone in the meeting committed to doing next, with an owner where
    the transcript states one and "owner?" where it doesn't. Do not invent an owner.
-5. Write the meeting note (format below) at `meetings/YYYY-MM-DD-<slug>.md` inside the entity folder,
+5. Write the meeting note (format in `references/output-format.md` — read it before writing) at
+   `meetings/YYYY-MM-DD-<slug>.md` inside the entity folder,
    using the resolved meeting date. **Check whether that path already exists before writing.** If it
    does:
    - If its `source_transcript` matches the transcript you are processing, this is a rerun of the same
@@ -146,6 +147,14 @@ These vary by team; confirm before the first run, then treat them as frozen for 
 **Persisting these across sessions.** A later run starts with no memory of the confirmation, so store
 the answers in `<entity-folder>/.meeting-scribe.yml` the first time you get them —
 `slug_format`, `recap_recipients`, `follow_up_definition` — see the bullets above for what each means.
+`recap_recipients` is a **list**, not a scalar, even with one address, and `follow_up_definition` uses
+the literal token `any-commitment` for the default. For example:
+
+```yaml
+slug_format: "YYYY-MM-DD-<short-topic>"
+recap_recipients: ["alex@example.com", "jordan@example.com"]
+follow_up_definition: any-commitment
+```
 
 Read that file at the start of every run, before step 1, and use whatever it holds. Anything it does
 not set falls back to the default above. Only ask again if the file is missing a value **and** no
